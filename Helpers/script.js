@@ -97,6 +97,9 @@ function prepareKeyRequest(address) {
                 case '16.1.0':
                     this.ret = args[5];
                     break;
+                case '17.0.0':
+                    this.ret = args[5];
+                    break;
                 default:
                     const message = 'Defaulting to args[4] for PrepareKeyRequest.'
                     send('message_info', new TextEncoder().encode(message));
