@@ -40,7 +40,7 @@ The script defaults to `args[4]` if no `--cdm-version` is provided. This will on
 python3 dump_keys.py --cdm-version '16.1.0'
 ```
 
-You can pass the `.so`-module name using the `--function-name` argument. By default it looking in `libwvhidl.so` and `libwvaidl.so` files. It can have multiple values. Its name can change depending on the version and SoC including but not limited to: `libwvaidl.so`, `libwvhidl.so`, `libwvdrmengine.so`, `libwvm.so`, `libdrmwvmplugin.so`[source](https://arxiv.org/abs/2204.09298). You can find your name in the /vendor/lib64/ or /vendor/lib/ directories using ADB shell.
+You can pass the `.so` -module name using the `--module-name` argument. By default it looks in the `libwvhidl.so` and `libwvaidl.so` files. It can have multiple values. Its name can change depending on the version and SoC including but not limited to: `libwvaidl.so`, `libwvhidl.so`, `libwvdrmengine.so`, `libwvm.so`, `libdrmwvmplugin.so`[source](https://arxiv.org/abs/2204.09298). You can find your module name in the /vendor/lib64/ or /vendor/lib/ directories using an ADB shell.
 
 ```
 python3 dump_keys.py --module-name 'libwvhidl.so' --module-name 'libwvaidl.so'
@@ -52,16 +52,16 @@ python3 dump_keys.py --module-name 'libwvhidl.so' --module-name 'libwvaidl.so'
     -h, --help                      Print this help text and exit.
     --cdm-version                   The CDM version of the device e.g. '16.1.0'.
     --function-name                 The name of the function to hook to retrieve the private key.
-    --module-name                   The names of the widevine `.so` modules.
+    --module-name                   The name of the widevine `.so` modules.
 ```
 
 ## Scenario:
-1. You've got function names
-2. You've got private key
+1. You've got the function name
+2. You've got the private key
 3. Client ID extracted
 4. Script closed
 
-After scipt closed you will have next files:
+The following files will be created after a successful dump:
 - `client_id.bin` - 
 - `private_key.pem` - RSA private key
 
